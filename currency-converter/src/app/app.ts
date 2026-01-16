@@ -5,8 +5,10 @@ import { ConverterComponent } from "./components/converter/converter";
   selector: 'app-root',
   standalone: true,
   template: `
-    <h1>EUR / USD Converter</h1>
-    <app-converter></app-converter>
+    <div class="app-root">
+  <h1>EUR / USD Converter</h1>
+  <app-converter></app-converter>
+</div>
   `,
   imports: [ConverterComponent],
 })

@@ -1,1 +1,78 @@
-/* You can add global styles to this file, and also import other style files */
+/* Reset & base */
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: Inter, Roboto, Arial, sans-serif;
+  background: linear-gradient(135deg, #f5f7fa, #e4ebf5);
+  color: #333;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Headings */
+h1, h2, h3 {
+  margin: 0 0 0.75rem;
+  font-weight: 600;
+}
+
+/* Inputs */
+input[type="number"] {
+  width: 100%;
+  padding: 0.6rem 0.7rem;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+  font-size: 1rem;
+
+  &:focus {
+    outline: none;
+    border-color: #1976d2;
+    box-shadow: 0 0 0 2px rgba(25, 118, 210, 0.15);
+  }
+
+  &:disabled {
+    background: #f0f0f0;
+    color: #888;
+  }
+}
+
+/* Buttons */
+button {
+  padding: 0.5rem 0.8rem;
+  border-radius: 6px;
+  border: none;
+  cursor: pointer;
+  font-size: 0.9rem;
+  background: #1976d2;
+  color: white;
+  transition: background 0.2s;
+
+  &:hover {
+    background: #145ea8;
+  }
+}
+
+/* Tables */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.9rem;
+}
+
+th, td {
+  padding: 0.5rem;
+  text-align: left;
+}
+
+thead {
+  background: #1976d2;
+  color: white;
+}
+
+tbody tr:nth-child(even) {
+  background: #f5f5f5;
+}

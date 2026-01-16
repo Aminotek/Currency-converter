@@ -1,25 +1,67 @@
 .converter {
-  max-width: 500px;
-  margin: auto;
-  padding: 1rem;
-  border: 1px solid #ddd;
-  border-radius: 8px;
+  max-width: 520px;
+  margin: 2rem auto;
+  background: white;
+  padding: 1.5rem;
+  border-radius: 12px;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
 }
 
 .rate-box {
-  background: #f5f5f5;
-  padding: 0.5rem;
+  display: flex;
+  justify-content: space-between;
+  background: #f3f6fa;
+  padding: 0.6rem 0.8rem;
+  border-radius: 8px;
   margin-bottom: 1rem;
+  font-size: 0.9rem;
 }
 
 .switch {
   display: flex;
   align-items: center;
+  justify-content: center;
   gap: 1rem;
-  margin-bottom: 1rem;
+  margin: 1rem 0;
 
-  span.active {
-    font-weight: bold;
-    color: #1976d2;
+  span {
+    font-weight: 500;
+    opacity: 0.5;
+
+    &.active {
+      opacity: 1;
+      color: #1976d2;
+    }
   }
+
+  button {
+    background: #eee;
+    color: #333;
+
+    &:hover {
+      background: #ddd;
+    }
+  }
+}
+
+.field {
+  margin-bottom: 1rem;
+}
+
+.output {
+  font-size: 1.4rem;
+  font-weight: bold;
+  color: #1976d2;
+}
+
+.forced {
+  margin-top: 1rem;
+  padding-top: 1rem;
+  border-top: 1px solid #eee;
+}
+
+.warning {
+  margin-top: 0.5rem;
+  color: #d32f2f;
+  font-size: 0.85rem;
 }
