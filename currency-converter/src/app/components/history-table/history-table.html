@@ -1,0 +1,23 @@
+<h3>Conversion History (Last 5)</h3>
+
+<table *ngIf="history$ | async as history">
+  <thead>
+    <tr>
+      <th>Time</th>
+      <th>Real Rate</th>
+      <th>Forced Rate</th>
+      <th>Input</th>
+      <th>Output</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <tr *ngFor="let h of history">
+      <td>{{ h.timestamp | date: 'HH:mm:ss' }}</td>
+      <td>{{ h.realRate }}</td>
+      <td>{{ h.forcedRate ?? '-' }}</td>
+      <td>{{ h.inputAmount }} {{ h.inputCurrency }}</td>
+      <td>{{ h.outputAmount }} {{ h.outputCurrency }}</td>
+    </tr>
+  </tbody>
+</table>

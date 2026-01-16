@@ -1,0 +1,63 @@
+
+<div class="converter">
+  <div class="switch">
+  <span [class.active]="mode() === 'EUR'">EUR</span>
+
+  <button (click)="switchMode()">⇄</button>
+
+  <span [class.active]="mode() === 'USD'">USD</span>
+</div>
+
+  <div>
+    <label>Input ({{ mode() }})</label>
+    <input
+  type="number"
+  [formControl]="inputControl"
+  [disabled]="inputControl.disabled"
+/>
+  </div>
+
+  <div>
+    <label>
+      Output ({{ mode() === 'EUR' ? 'USD' : 'EUR' }})
+    </label>
+    <strong>{{ output() }}</strong>
+  </div>
+</div>
+<hr />
+
+<h3>Forced Exchange Rate</h3>
+
+<label>
+  <input type="checkbox" formControlName="enabled" [formGroup]="forcedRateForm" />
+  Enable forced rate
+</label>
+
+<input
+  type="number"
+  step="0.0001"
+  placeholder="Forced rate"
+  formControlName="rate"
+  [formGroup]="forcedRateForm"
+  [disabled]="!forcedRateForm.value.enabled"
+/>
+@if (forcedDisabledByDeviation()) {<div style="color: red">
+  Forced rate disabled (deviation &gt; 2%)
+</div>}
+<div class="rate-box">
+  <p>
+    <strong>Real rate:</strong>
+    {{ realRate$ | async }}
+  </p>
+
+  <p *ngIf="forcedRate$ | async as forced; else noForced">
+    <strong>Forced rate:</strong> {{ forced }}
+  </p>
+
+  <ng-template #noForced>
+    <p><em>No forced rate</em></p>
+  </ng-template>
+</div>
+<app-history-table></app-history-table>
+
+
